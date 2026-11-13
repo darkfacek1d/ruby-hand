@@ -1,4 +1,4 @@
-name: Build & Release
+﻿name: Build & Release
 
 on:
   push:
@@ -28,7 +28,13 @@ jobs:
       - name: Ensure Electron binary
         run: node node_modules/electron/install.js
 
-      - name: Build & Publish
+      - name: Build TypeScript (electron)
+        run: npx tsc -p tsconfig.node.json
+
+      - name: Build Vite (renderer)
+        run: npx vite build
+
+      - name: Package & Publish
         run: npx electron-builder --win --x64 --publish always
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
