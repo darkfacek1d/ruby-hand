@@ -1,0 +1,96 @@
+:root {
+  --bg-base: #08080a;
+  --bg-soft: #0e0e12;
+  --panel: rgba(20, 20, 26, 0.55);
+  --panel-strong: rgba(26, 26, 34, 0.72);
+  --accent: #ff2d55;
+  --accent-2: #ff5e78;
+  --accent-glow: rgba(255, 45, 85, 0.35);
+  --text: #f5f5f7;
+  --muted: #8a8a92;
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --radius: 20px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 800px at 15% -10%, rgba(255, 45, 85, 0.16), transparent 60%),
+    radial-gradient(900px 700px at 100% 110%, rgba(88, 88, 200, 0.14), transparent 60%),
+    radial-gradient(700px 500px at 50% 50%, rgba(255, 255, 255, 0.02), transparent 70%),
+    var(--bg-base);
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 45, 85, 0.4); }
+
+.glass-panel {
+  background: var(--panel);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.btn {
+  border: 1px solid var(--border-glass);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  border: none;
+  color: white;
+  box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+.btn-accent:hover {
+  box-shadow: 0 6px 28px var(--accent-glow);
+}
+
+.title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+.subtitle { color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+.drag-region { -webkit-app-region: drag; }
+.no-drag { -webkit-app-region: no-drag; }
