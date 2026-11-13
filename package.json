@@ -1,6 +1,6 @@
 {
   "name": "ruby-hand",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Ruby Hand — game optimizer by darkfacek1d",
   "author": "darkfacek1d",
   "main": "dist-electron/main.js",
