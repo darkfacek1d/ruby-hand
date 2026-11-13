@@ -27,8 +27,31 @@
     "vite": "^5.0.0",
     "wait-on": "^7.2.0"
   },
-  "allowScripts": {
-    "electron@29.4.6": true,
-    "esbuild@0.21.5": true
+  "build": {
+    "appId": "com.darkfacek1d.rubyhand",
+    "productName": "Ruby Hand",
+    "asar": true,
+    "asarUnpack": [
+      "dist/**"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "package.json"
+    ],
+    "extraMetadata": {
+      "main": "dist-electron/main.js"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    }
   }
 }

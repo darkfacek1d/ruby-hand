@@ -1,0 +1,24 @@
+{
+  "appId": "com.darkfacek1d.rubyhand",
+  "productName": "Ruby Hand",
+  "asar": true,
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "dist/**/*",
+    "dist-electron/**/*",
+    "package.json"
+  ],
+  "extraMetadata": {
+    "main": "dist-electron/main.js"
+  },
+  "win": {
+    "target": "nsis"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true
+  }
+}
